@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', serif; /* Matching the serif font in image */
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar to match the purple strip in your image */
+.sidebar {
+    width: 60px;
+    background: linear-gradient(180deg, #8a2be2, #4b0082);
+    height: 100%;
+    flex-shrink: 0;
+}
+
+/* Main Blue Background */
+.content-area {
+    flex-grow: 1;
+    background-color: #3aaaff; /* Bright blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* The Clock Body */
+.clock {
+    width: 350px;
+    height: 350px;
+    background-color: #dbfbfb; /* Light cyan/blue face */
+    border: 15px solid #fff8dc; /* Cream/Cornsilk rim */
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Hands --- */
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.hour {
+    width: 8px;
+    height: 70px;
+    background: black;
+    margin-left: -4px;
+    z-index: 11;
+}
+
+.minute {
+    width: 6px;
+    height: 100px;
+    background: black;
+    margin-left: -3px;
+    z-index: 12;
+}
+
+.second {
+    width: 2px;
+    height: 110px;
+    background: #ff1493; /* Deep Pink */
+    margin-left: -1px;
+    z-index: 13;
+}
+
+.center-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: black;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 14;
+}
+
+/* --- Digital Display Box --- */
+.digital-display {
+    position: absolute;
+    top: 50%;
+    left: 22%; /* Positioned to the left like in the image */
+    transform: translateY(-50%);
+    background: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #000;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    z-index: 5; /* Below hands */
+    border: 1px solid #ddd;
+}
+
+/* --- Markings (Numbers & Ticks) --- */
+.face-markings {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Ticks */
+.tick {
+    position: absolute;
+    width: 1px;
+    height: 8px;
+    background: #ffb6c1; /* Light Pink ticks */
+    left: 50%;
+    top: 2px; /* Slight offset from edge */
+    transform-origin: 50% 173px; /* Radius of clock (350/2 = 175) - offset */
+}
+
+/* Numbers */
+.number {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    margin-left: -15px;
+    margin-top: -15px;
+}
+
+/* Major Numbers (12, 3, 6, 9) - Black */
+.num-major {
+    color: black;
+    font-size: 1.5em;
+}
+
+/* Minor Numbers (1, 2, 4, 5...) - Pink */
+.num-minor {
+    color: #ff69b4; /* Hot Pink */
+    font-size: 1em;
+}
