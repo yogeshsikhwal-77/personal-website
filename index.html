@@ -2,36 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home | Personal Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogesh Sikhwal | Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+    <div class="container">
 
-<header>
-    <img src="profile.jpg" class="profile-pic">
-    <h1>YOGESH SIKHWAL</h1>
-    <p>Student | Developer | Learner</p>
-</header>
+        <header>
+            <img src="profile.jpg" class="profile-pic" alt="">
+            <h1>YOGESH SIKHWAL</h1>
+            <p>Student | Developer | Learner</p>
+        </header>
 
-<nav>
-    <a class="active" href="index.html">🏠 Home</a>
-    <a href="about.html">👤 About</a>
-    <a href="skills.html">🛠 Skills</a>
-    <a href="contact.html">📞 Contact</a>
-    <a href="calculator.html">calculator</a>
-    <a href="clock.html">Time</a>
-    <button onclick="toggleDarkMode()">🌙</button>
-</nav>
+        <nav>
+            <a class="active" href="index.html">🏠 Home</a>
+            <a href="about.html">👤 About</a>
+            <a href="skills.html">🛠 Skills</a>
+            <a href="contact.html">📞 Contact</a>
+            <a href="calculator.html">🧮 Calc</a>
+            <a href="clock.html">⌚ Time</a>
+            <button onclick="toggleDarkMode()">🌙</button> 
+        </nav>
 
-<section>
-    <h2>Welcome 👋</h2>
-    <p>This is my colorful personal website built using HTML, CSS & JavaScript.</p>
-</section>
+        <section class="wide">
+            <h2>Welcome 👋</h2>
+            <p>This is my personal dashboard built with a Bento Grid layout. Each section is a modular card.</p>
+        </section>
 
-</div>
+        <section>
+            <h2>Latest</h2>
+            <p><strong>Status:</strong> Coding 💻</p>
+        </section>
 
-<script src="script.js"></script>
+         <section>
+            <h2>Location</h2>
+            <p>India 📍</p>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

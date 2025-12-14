@@ -3,40 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Modern Calculator</title>
     <link rel="stylesheet" href="calculator.css">
 </head>
 <body>
+
     <div class="calculator">
-        <div class="display">
-            <input type="text" id="display" readonly>
+        <div class="calc-header">
+            <a href="index.html" class="back-btn" aria-label="Go Back">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+            </a>
+            
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
         </div>
+
+        <div class="display">
+            <input type="text" id="display" placeholder="0" disabled>
+        </div>
+        
         <div class="buttons">
-            <button class="btn clear" onclick="clearDisplay()">C</button>
-            <button class="btn clear" onclick="clearEntry()">CE</button>
-            <button class="btn operator" onclick="deleteLast()">⌫</button>
-            <button class="btn operator" onclick="appendToDisplay('/')">/</button>
+            <button class="btn function" onclick="clearDisplay()">AC</button>
+            <button class="btn function" onclick="deleteLast()">DEL</button>
+            <button class="btn function" onclick="appendOperator('%')">%</button>
+            <button class="btn operator" onclick="appendOperator('/')">÷</button>
             
-            <button class="btn number" onclick="appendToDisplay('7')">7</button>
-            <button class="btn number" onclick="appendToDisplay('8')">8</button>
-            <button class="btn number" onclick="appendToDisplay('9')">9</button>
-            <button class="btn operator" onclick="appendToDisplay('*')">×</button>
+            <button class="btn number" onclick="appendNumber('7')">7</button>
+            <button class="btn number" onclick="appendNumber('8')">8</button>
+            <button class="btn number" onclick="appendNumber('9')">9</button>
+            <button class="btn operator" onclick="appendOperator('*')">×</button>
             
-            <button class="btn number" onclick="appendToDisplay('4')">4</button>
-            <button class="btn number" onclick="appendToDisplay('5')">5</button>
-            <button class="btn number" onclick="appendToDisplay('6')">6</button>
-            <button class="btn operator" onclick="appendToDisplay('-')">-</button>
+            <button class="btn number" onclick="appendNumber('4')">4</button>
+            <button class="btn number" onclick="appendNumber('5')">5</button>
+            <button class="btn number" onclick="appendNumber('6')">6</button>
+            <button class="btn operator" onclick="appendOperator('-')">−</button>
             
-            <button class="btn number" onclick="appendToDisplay('1')">1</button>
-            <button class="btn number" onclick="appendToDisplay('2')">2</button>
-            <button class="btn number" onclick="appendToDisplay('3')">3</button>
-            <button class="btn operator" onclick="appendToDisplay('+')">+</button>
+            <button class="btn number" onclick="appendNumber('1')">1</button>
+            <button class="btn number" onclick="appendNumber('2')">2</button>
+            <button class="btn number" onclick="appendNumber('3')">3</button>
+            <button class="btn operator" onclick="appendOperator('+')">+</button>
             
-            <button class="btn number zero" onclick="appendToDisplay('0')">0</button>
-            <button class="btn number" onclick="appendToDisplay('.')">.</button>
+            <button class="btn number zero" onclick="appendNumber('0')">0</button>
+            <button class="btn number" onclick="appendNumber('.')">.</button>
             <button class="btn equals" onclick="calculate()">=</button>
         </div>
     </div>
+
     <script src="calculator.js"></script>
 </body>
 </html>

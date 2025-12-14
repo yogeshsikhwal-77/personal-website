@@ -1,4 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    /* Color Palette Variables */
+    --bg-color: #ffffff;
+    --text-main: #121212;
+    --text-secondary: #555555;
+    --accent-blue: #0056b3;
+    --accent-red: #d32f2f;
+    --border-color: #e0e0e0;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
 
 * {
     margin: 0;
@@ -8,92 +19,195 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-color: var(--bg-color);
+    color: var(--text-main);
     min-height: 100vh;
+    padding: 40px 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    transition: 0.4s;
+    align-items: flex-start; /* Aligns to top rather than center for long content */
 }
 
-body.dark {
-    background: #121212;
-}
-
+/* Main Grid Layout */
 .container {
-    background: white;
-    width: 90%;
-    max-width: 900px;
-    border-radius: 25px;
-    padding: 30px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    background: transparent;
+    width: 100%;
+    max-width: 1100px;
+    /* This creates the "Different Sizes" effect */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Column Grid */
+    grid-auto-rows: minmax(150px, auto);
+    gap: 20px;
+    box-shadow: none; /* Removed the old container shadow */
+    border-radius: 0;
+    padding: 0;
 }
 
-body.dark .container {
-    background: #1e1e1e;
-    color: white;
-}
-
+/* GRID SPANS 
+   Apply these classes to your HTML sections to change their sizes
+*/
 header {
-    text-align: center;
-    background: linear-gradient(135deg, #ff512f, #f09819);
-    color: white;
-    padding: 30px;
-    border-radius: 20px;
-}
-
-.profile-pic {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    border: 4px solid white;
-    object-fit: cover;
-    margin-bottom: 15px;
+    grid-column: span 2; /* Header takes 2 columns */
+    grid-row: span 2;    /* Header is taller */
 }
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 25px 0;
-    flex-wrap: wrap;
-}
-
-nav a {
-    text-decoration: none;
-    color: white;
-    background: linear-gradient(135deg, #43cea2, #185a9d);
-    padding: 10px 18px;
-    border-radius: 30px;
-}
-
-nav a.active {
-    background: linear-gradient(135deg, #ff416c, #ff4b2b);
-}
-
-nav button {
-    border: none;
-    padding: 10px 18px;
-    border-radius: 50%;
-    cursor: pointer;
+    grid-column: span 2; /* Nav takes 2 columns */
+    align-self: center;
 }
 
 section {
-    margin-top: 20px;
+    grid-column: span 1; /* Default sections are small squares */
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
+/* Special sizing for specific sections (add class="wide" or "tall" to HTML) */
+section.wide {
+    grid-column: span 2;
+}
+
+section.tall {
+    grid-row: span 2;
+}
+
+/* Hover Effects for Cards */
+section:hover, header:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+}
+
+/* Header Styling */
+header {
+    background: #ffffff;
+    border: 2px solid var(--text-main); /* Bold black border */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    color: var(--text-main);
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--accent-red); /* Red border for profile */
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* Navigation Styling */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: transparent;
+    padding: 0;
+}
+
+nav a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-main);
+    background: white;
+    border: 1px solid var(--text-main);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+nav a:hover {
+    background: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+}
+
+nav a.active {
+    background: var(--accent-red);
+    color: white;
+    border-color: var(--accent-red);
+}
+
+/* Dark Mode Toggle Button (Styled as a minimal circle) */
+nav button {
+    border: 2px solid var(--text-main);
+    background: white;
+    color: var(--text-main);
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav button:hover {
+    background: var(--text-main);
+    color: white;
+}
+
+/* Skills Section Styling */
 .skill {
-    margin: 15px 0;
+    margin: 20px 0;
+}
+
+.skill h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .bar {
-    background: #ddd;
-    border-radius: 20px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    height: 10px;
     overflow: hidden;
+    width: 100%;
 }
 
 .bar div {
-    height: 14px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100%;
+    background: var(--accent-blue); /* Default Blue */
+    width: 0%; /* Allow JS to animate this */
+    transition: width 1s ease;
 }
 
+/* Alternate color for bars using :nth-child or specific classes */
+.skill:nth-child(even) .bar div {
+    background: var(--accent-red);
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Stack everything on mobile */
+        gap: 15px;
+    }
+
+    header, nav, section.wide, section.tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

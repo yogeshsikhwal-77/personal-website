@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Times New Roman', serif; /* Matching the serif font in image */
+    font-family: 'Times New Roman', serif;
     height: 100vh;
     overflow: hidden;
 }
@@ -16,18 +16,19 @@ body {
     height: 100%;
 }
 
-/* Sidebar to match the purple strip in your image */
+/* Sidebar: Dark Wood Gradient */
 .sidebar {
     width: 60px;
-    background: linear-gradient(180deg, #8a2be2, #4b0082);
+    background: linear-gradient(180deg, #4e342e, #281815); /* Dark Brown/Coffee */
     height: 100%;
     flex-shrink: 0;
+    border-right: 1px solid #3e2723;
 }
 
-/* Main Blue Background */
+/* Main Background: Soft Beige/Cream (The "Wall") */
 .content-area {
     flex-grow: 1;
-    background-color: #3aaaff; /* Bright blue background */
+    background-color: #f5f5dc; /* Beige/Cream */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,11 +39,11 @@ body {
 .clock {
     width: 350px;
     height: 350px;
-    background-color: #dbfbfb; /* Light cyan/blue face */
-    border: 15px solid #fff8dc; /* Cream/Cornsilk rim */
+    background-color: #ffffff; /* Pure White Face */
+    border: 15px solid #5d4037; /* Solid Brown Rim */
     border-radius: 50%;
     position: relative;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3); /* Stronger shadow for depth */
 }
 
 /* --- Hands --- */
@@ -58,7 +59,7 @@ body {
 .hour {
     width: 8px;
     height: 70px;
-    background: black;
+    background: black; /* Classic Black */
     margin-left: -4px;
     z-index: 11;
 }
@@ -66,7 +67,7 @@ body {
 .minute {
     width: 6px;
     height: 100px;
-    background: black;
+    background: black; /* Classic Black */
     margin-left: -3px;
     z-index: 12;
 }
@@ -74,7 +75,7 @@ body {
 .second {
     width: 2px;
     height: 110px;
-    background: #ff1493; /* Deep Pink */
+    background: #8b0000; /* Deep Red/Burgundy - Aligns with Brown */
     margin-left: -1px;
     z-index: 13;
 }
@@ -83,7 +84,8 @@ body {
     position: absolute;
     width: 16px;
     height: 16px;
-    background: black;
+    background: #3e2723; /* Dark Brown dot */
+    border: 2px solid white;
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -95,18 +97,18 @@ body {
 .digital-display {
     position: absolute;
     top: 50%;
-    left: 22%; /* Positioned to the left like in the image */
+    left: 22%;
     transform: translateY(-50%);
-    background: white;
+    background: #fafafa; /* Off-white */
     padding: 4px 10px;
-    border-radius: 6px;
+    border-radius: 4px;
     font-family: 'Times New Roman', serif;
     font-weight: bold;
     font-size: 1.1em;
-    color: #000;
-    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-    z-index: 5; /* Below hands */
-    border: 1px solid #ddd;
+    color: #333;
+    box-shadow: inset 1px 1px 4px rgba(0,0,0,0.1);
+    z-index: 5;
+    border: 1px solid #d7ccc8; /* Subtle brown border */
 }
 
 /* --- Markings (Numbers & Ticks) --- */
@@ -121,12 +123,12 @@ body {
 /* Ticks */
 .tick {
     position: absolute;
-    width: 1px;
+    width: 2px; /* Made slightly thicker for visibility */
     height: 8px;
-    background: #ffb6c1; /* Light Pink ticks */
+    background: #8d6e63; /* Muted Brown ticks */
     left: 50%;
-    top: 2px; /* Slight offset from edge */
-    transform-origin: 50% 173px; /* Radius of clock (350/2 = 175) - offset */
+    top: 2px;
+    transform-origin: 50% 173px;
 }
 
 /* Numbers */
@@ -143,14 +145,14 @@ body {
     margin-top: -15px;
 }
 
-/* Major Numbers (12, 3, 6, 9) - Black */
+/* Major Numbers (12, 3, 6, 9) */
 .num-major {
     color: black;
-    font-size: 1.5em;
+    font-size: 1.6em;
 }
 
-/* Minor Numbers (1, 2, 4, 5...) - Pink */
+/* Minor Numbers (1, 2, 4, 5...) */
 .num-minor {
-    color: #ff69b4; /* Hot Pink */
-    font-size: 1em;
+    color: #5d4037; /* Dark Brown */
+    font-size: 1.1em;
 }
